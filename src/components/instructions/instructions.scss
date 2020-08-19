@@ -1,0 +1,36 @@
+$primary-color: #28B1FE;
+$grey-color: #e1e6e7;
+
+.instructions-container {
+	margin: 4rem;
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.app-intro {
+		margin-top: 20px;
+		h3 {
+			color: #0499f0;
+			font-size: 24px;
+		} 	
+		background-color: transparentize($color: #28B1FE, $amount: .92);
+		padding: 30px;
+		border-radius: 10px;
+		color: #28B1FE;
+		text-align: center;
+	}
+
+	.instruction-container {
+		display: flex;
+		padding: 10px;
+
+		.instruction {
+			background-color: transparentize($color: #28B1FE, $amount: .92);
+			padding: 15px;
+		}
+
+		.title {
+			margin-bottom: 8px;
+		}
+	}
+}
