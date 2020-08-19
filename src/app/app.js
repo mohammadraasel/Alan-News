@@ -22,11 +22,13 @@ function App() {
         } else if (command === 'open') {
           const parsedNumber = number.length > 2 ? wordsToNumbers(number, { fuzzy: true }) : number
           const article = articles[parsedNumber - 1]
-          if (parsedNumber > 20 || !article) {
+          if (parsedNumber > 20 ) {
             alanBtn().playText('Please try that again')
+          } else if (article) {
+            alanBtn().playText('Opening ...')
+            window.open(article.url, '_blank')
           }
-          alanBtn().playText('Opening ...')
-          window.open(article.url, '_blank')
+           
         }
       }
     })
