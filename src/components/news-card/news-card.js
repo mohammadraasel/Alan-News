@@ -1,11 +1,21 @@
-import React from 'react'
+import React, {useEffect, createRef, useState} from 'react'
 import './news-card.scss'
 
 const fallbackImage = 'http://www.sra.org.sz/img/news-placeholder.jpg'
 
-function NewsCard({index, article: { description, publishedAt, source, title, url, urlToImage = fallbackImage} }) {
+function NewsCard({ index, activeArticle, article: { description, publishedAt, source, title, url, urlToImage = fallbackImage } }) {
+	const [elementRefs, setElementRefs] = useState([])
+	const scrollToRef = (ref)=> window.scroll(0, ref.current.offsetTop - 50)
+	useEffect(() => {
+		setElementRefs((prevRefs)=>Array(20).fill(0).map((_, i)=> prevRefs[i] || createRef()))
+	}, [])
+	useEffect(() => {
+		if (index === activeArticle && elementRefs[index]) {
+			scrollToRef(elementRefs[index])
+		}
+	}, [index, activeArticle, elementRefs])
 	return (
-		<div className='news-card-container'>
+		<div ref={elementRefs[index]} className={`news-card-container ${activeArticle === index ? 'active': ''}`}>
 			<div className="card-area">
 				<div className="card-media">
 					<img src={urlToImage} alt=""/>

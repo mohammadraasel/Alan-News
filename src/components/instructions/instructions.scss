@@ -2,13 +2,14 @@ $primary-color: #28B1FE;
 $grey-color: #e1e6e7;
 
 .instructions-container {
-	margin: 4rem;
-	margin-top: 20px;
+	margin: 0 auto;
+	width: 65%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	.app-intro {
-		margin-top: 20px;
+		margin-top: 50px;
+		margin-bottom: 10px;
 		h3 {
 			color: #0499f0;
 			font-size: 24px;
@@ -25,12 +26,72 @@ $grey-color: #e1e6e7;
 		padding: 10px;
 
 		.instruction {
+			color: #28B1FE;
+			flex: 1;
 			background-color: transparentize($color: #28B1FE, $amount: .92);
-			padding: 15px;
+			padding: 25px 20px;
+			text-align: center;
+			min-height: 260px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			border-radius: 10px;
+
+			&:not(:last-child){
+				margin-right: 6px;
+			}
 		}
 
 		.title {
 			margin-bottom: 8px;
 		}
+	}
+}
+
+@media(max-width: 1300px){
+	.instructions-container {
+		width: 80%;
+	}
+}
+@media(max-width: 1120px){
+	.instructions-container {
+		width: 90%;
+	}
+}
+@media(max-width: 970px){
+	.instructions-container {
+		width: 95%;
+	}
+}
+@media(max-width: 900px){
+	.instructions-container {
+		.instruction-container{
+			width: 95%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 10px;
+			.instruction {
+				&:not(:last-child){
+					margin-right: 0;
+				}
+			}
+		}
+		
+	}
+}
+@media(max-width: 450px){
+	.instructions-container {
+		.instruction-container{
+			width: 95%;
+			display: grid;
+			grid-template-columns: 1fr;
+			grid-gap: 10px;
+			.instruction {
+				&:not(:last-child){
+					margin-right: 0;
+				}
+			}
+		}
+		
 	}
 }

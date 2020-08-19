@@ -2,11 +2,11 @@ import React from 'react'
 import NewsCard from '../news-card'
 import './news-list.scss'
 
-function NewsList({ articles }) {
+function NewsList({ articles, activeArticle }) {
 	return (
 		<div className='news-list-container'>
 			{
-				articles.map((article, index) => <NewsCard key={index} index={index} article={article}/>)
+				articles.map((article, index) => <NewsCard key={index} activeArticle={activeArticle} index={index} article={article}/>)
 			}
 		</div>
 	)

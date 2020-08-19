@@ -7,6 +7,9 @@ $grey-color: #e1e6e7;
 	background-color: white;
 	width: 100%;
 	box-shadow: 1px 1px 4px rgba(1, 1, 1, .15);
+	&.active {
+		border-bottom: 10px solid $primary-color;
+	}
 	.card-area {
 		img {
 			max-height: 320px;
